@@ -8,7 +8,7 @@
 # ===================== BASIC START-UP STUFF ======================
 
 # Set the default font used by sway, I like maple mono.
-font pango:Maple Mono Regular 10
+font pango:Maple Mono Regular 12
 
 # Start the auth agent, if you don't use this you can comment out this line.
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -26,9 +26,12 @@ exec nm-applet
 
 # These are simply my details, they **wont** work for you, I've
 # included them to serve as an example.
-output DP-3 pos 1920 0 res 2560x1440@164.835Hz
-output DP-1 pos 0 0 res 1920x1080@144.001Hz
-output HDMI-A-2 pos 4480 0 res 3840x2160@59.997Hz
+# output DP-3 pos 1920 0 res 2560x1440@164.835Hz
+# output DP-1 pos 0 0 res 1920x1080@144.001Hz
+# output HDMI-A-2 pos 4480 0 res 3840x2160@59.997Hz
+
+output eDP-1 pos 0 0 res 1920x1080@60.056Hz
+
 # =================================================================
 
 
@@ -38,7 +41,7 @@ output HDMI-A-2 pos 4480 0 res 3840x2160@59.997Hz
 # to the specific display output. Make sure to edit the directory
 # to your wallpaper!
 
-output * bg "/home/username/Pictures/wallpaper.png" fill
+output * bg "/home/arch/Pictures/wallpaper.png" fill
 # =================================================================
 
 
@@ -57,6 +60,7 @@ set $application_launcher pgrep wofi >/dev/null 2>&1 && killall wofi || wofi --s
 # --- THE FILE EXPLORER! I recommend either nautilus or nemo, personally I think nautilus fits nicely,
 # --- although make sure to install and use my GTK theme, guide on that is in the github README.
 set $file_explorer GTK_THEME=diinki-retro-dark nautilus
+set $browser GTK_THEME=diinki-retro-dark firefox
 # =================================================================
 
 
@@ -92,7 +96,7 @@ client.placeholder      #AC82E9 #141216 #d8cab8 #AC82E9 #AC82E9
 # for instance, if you want spanish; or any other.
 # You toggle between the languages with ALT+SHIFT
 input * {
-  xkb_layout "us,se"
+  xkb_layout "tr"
   xkb_options "grp:alt_shift_toggle"
 }
 
@@ -129,10 +133,13 @@ bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
 # understand and edit.
 
 
-bindsym $mod+Return exec $term
+bindsym $mod+t exec $term
+bindsym $mod+f exec $browser
 bindsym $mod+e exec $file_explorer
-bindsym $mod+d exec $application_launcher
+bindsym $mod+a exec $application_launcher
 bindsym $mod+q kill
+bindsym Ctrl+Alt+Delete exec wlogout
+bindsym Mod4+L exec wlogout
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+space floating toggle
 
@@ -149,11 +156,10 @@ bindsym $mod+Shift+e exec swaynag -t warning -m "Are you sure you want to exit s
 # These are the standard bindings, such as switching workspace, moving windows to different
 # workspaces, etc. Feel free to edit to your liking.
 
-bindsym $mod+f fullscreen
+bindsym $mod+alt+Return fullscreen
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
-bindsym $mod+$right focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -190,5 +196,4 @@ bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
-bindsym $mod+a focus parent
 # ==============================================================
