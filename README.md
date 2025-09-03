@@ -1,9 +1,5 @@
 # Retro-Futuristic Linux Rice
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E81FQW4S)
-
-If you enjoy the content & art I create, feel entirely free to give a tip on kofi!
-
 ---
 
 <details open>
@@ -55,7 +51,7 @@ Feel free to watch [this part of my video](https://youtu.be/jFz5gLqv-FM&t=1903) 
    - Run `sudo pacman -S sway wofi waybar nemo nautilus kitty dconf dconf-editor` in your terminal.
    - Run `yay eww` in your terminal (you will need to install yay).
    - Install the [Maple Mono font](https://github.com/subframe7536/Maple-font), as this font is used a lot in this Linux rice. Move the font-file to `/usr/share/fonts`, then run `fc-cache -f -v` to update the fonts.
-   - Run `git clone https://github.com/diinki/diinki-retrofuture` to clone this repo, or install it from the Releases section.
+   - Run `git clone https://github.com/thelp281/diinki-retrofuture` to clone this repo, or install it from the Releases section.
 2. `Configuration & Setup`
    - Copy all folders in the `diinki-retrofuture/config` directory to your local user `.config` directory
      (`~/.config`). Skip the `hypr` folder if you don't also want the hyprland config files.
